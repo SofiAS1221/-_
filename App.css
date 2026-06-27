@@ -1,0 +1,318 @@
+@import url('https://fonts.googleapis.com/css2?family=Comfortaa:wght@400;700&display=swap');
+
+.dark-theme {
+  --bg-main: #000000;
+  --bg-cards: #111111;
+  --text-main: #ffffff;
+  --text-muted: #e0e0e0;
+  --header-bg: rgba(0, 0, 0, 0.9);
+  --border-color: rgba(255, 255, 255, 0.2);
+  --input-bg: #222222;
+}
+
+.light-theme {
+  --bg-main: #ffffff;
+  --bg-cards: #f9f9f9;
+  --text-main: #111111;
+  --text-muted: #555555;
+  --header-bg: rgba(255, 255, 255, 0.9);
+  --border-color: #cccccc;
+  --input-bg: #ffffff;
+}
+
+body, html {
+  margin: 0;
+  padding: 0;
+  font-family: 'Comfortaa', cursive, sans-serif !important;
+  background-color: #000000;
+}
+
+.app-wrapper {
+  background-color: var(--bg-main);
+  color: var(--text-main);
+  min-height: 100vh;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+/* СТИЛИ ДЛЯ ВСПОЛЫВАЮЩЕГО ОКНА COOKIE ИЗ ВАРИАНТА А */
+.cookie-notification-popup {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  max-width: 400px;
+  background: var(--bg-cards);
+  border: 2px solid var(--border-color);
+  padding: 20px;
+  border-radius: 16px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+  z-index: 10000;
+  animation: slideInUp 0.4s ease forwards;
+}
+
+@keyframes slideInUp {
+  from { transform: translateY(100px); opacity: 0; }
+  to { transform: translateY(0); opacity: 1; }
+}
+
+.cookie-content {
+  display: flex;
+  flex-direction: column;
+  gap: 15px;
+}
+
+.cookie-cookie-icon {
+  font-size: 30px;
+}
+
+.cookie-text-data {
+  font-size: 13px;
+  line-height: 1.5;
+  color: var(--text-main);
+}
+
+.cookie-buttons {
+  display: flex;
+  gap: 10px;
+}
+
+.cookie-btn {
+  flex: 1;
+  padding: 10px;
+  border-radius: 8px;
+  font-weight: bold;
+  font-family: inherit;
+  font-size: 13px;
+  cursor: pointer;
+  border: none;
+}
+
+.cookie-btn.approve {
+  background: #0055ff;
+  color: white;
+}
+
+.cookie-btn.decline {
+  background: transparent;
+  border: 1px solid var(--border-color);
+  color: var(--text-muted);
+}
+
+/* ШАПКА */
+.saas-header {
+  background: var(--header-bg);
+  border-bottom: 1px solid var(--border-color);
+  position: sticky;
+  top: 0;
+  z-index: 1000;
+}
+.header-inner {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 15px 20px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.saas-logo {
+  font-size: 22px;
+  font-weight: 700;
+  color: #0055ff;
+  cursor: pointer;
+}
+.saas-nav { display: flex; gap: 20px; align-items: center; }
+.saas-nav a { text-decoration: none; color: var(--text-muted); font-weight: bold; font-size: 14px; }
+
+.theme-toggle-btn-bubble {
+  background: var(--bg-cards);
+  border: 1px solid var(--border-color);
+  font-size: 20px;
+  cursor: pointer;
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.header-login-link-modern {
+  background: #0055ff;
+  color: white;
+  border: none;
+  padding: 8px 20px;
+  border-radius: 20px;
+  font-weight: bold;
+  cursor: pointer;
+}
+
+/* HERO СЕКЦИЯ С АДАПТИВНЫМ ЦВЕТОМ ЗАГОЛОВКА */
+.saas-hero { padding: 80px 20px; text-align: center; }
+.hero-glow-box { max-width: 800px; margin: 0 auto; }
+
+.hero-bubble-headline { 
+  font-size: 32px; 
+  font-weight: 700; 
+  line-height: 1.4; 
+  margin-bottom: 20px; 
+  transition: color 0.3s ease;
+}
+.dark-theme .hero-bubble-headline { color: #ffffff; }
+.light-theme .hero-bubble-headline { color: #000000; }
+
+.hero-sub-description { font-size: 18px; margin-bottom: 35px; color: var(--text-muted); }
+
+.hero-action-buttons {
+  display: flex;
+  gap: 20px;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Кнопка 1: Попробовать бесплатно */
+.btn-saas-primary-glow {
+  background: #0055ff;
+  color: #ffffff;
+  border: none;
+  padding: 18px 35px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 4px 15px rgba(0, 85, 255, 0.3);
+}
+.btn-saas-primary-glow:hover {
+  background: #0044cc;
+  box-shadow: 0 0 25px #0055ff;
+  transform: translateY(-2px);
+}
+
+/* Кнопка 2: Получить демо с синей подсветкой */
+.btn-saas-demo-blue {
+  background: transparent;
+  color: var(--text-main);
+  border: 2px solid #0055ff;
+  padding: 16px 35px;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 16px;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+.btn-saas-demo-blue:hover {
+  background: #0055ff;
+  color: #ffffff;
+  box-shadow: 0 0 25px #0055ff;
+  transform: translateY(-2px);
+}
+
+/* КАРУСЕЛЬ */
+.saas-carousel-section { max-width: 1100px; margin: 40px auto; padding: 0 20px; }
+.carousel-wrapper { background: var(--bg-cards); border-radius: 24px; padding: 24px; border: 1px solid var(--border-color); }
+.carousel-viewport { display: flex; align-items: center; justify-content: space-between; min-height: 400px; }
+.slide-box img { max-width: 100%; max-height: 450px; object-fit: contain; border-radius: 12px; }
+.carousel-nav-btn { background: #0055ff; color: white; width: 44px; height: 44px; border-radius: 50%; border: none; font-size: 24px; cursor: pointer; }
+.carousel-slide-title { text-align: center; margin-top: 20px; font-size: 16px; font-weight: normal; }
+.carousel-dots { text-align: center; margin-top: 15px; }
+.carousel-dots .dot { width: 10px; height: 10px; background: #888888; display: inline-block; margin: 0 5px; border-radius: 50%; cursor: pointer; }
+.carousel-dots .dot.active { background: #0055ff; width: 22px; border-radius: 10px; }
+
+/* ПРОБЛЕМЫ С КРАСНОЙ ПОДСВЕТКОЙ КВАДРАТОВ */
+.saas-problems-section { max-width: 1200px; margin: 60px auto; text-align: center; }
+.section-bubble-title-dark { font-size: 32px; font-weight: 700; color: #ffffff; background: #222222; display: inline-block; padding: 12px 35px; border-radius: 50px; margin-bottom: 40px; }
+.problems-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(320px, 1fr)); gap: 25px; padding: 0 20px; }
+.problem-card { background: var(--bg-cards); padding: 30px; border-radius: 20px; text-align: left; border: 1px solid var(--border-color); transition: all 0.3s ease; }
+
+.problem-card:hover {
+  border-color: #ff3333;
+  box-shadow: 0 0 20px rgba(255, 51, 51, 0.5);
+  transform: translateY(-2px);
+}
+.problem-num { font-size: 24px; font-weight: 700; color: #ff3333; margin-bottom: 10px; }
+.problem-title { font-size: 18px; margin: 0 0 10px 0; }
+.problem-text { font-size: 14px; color: var(--text-muted); line-height: 1.6; }
+
+/* ЗАГОЛОВОК СЕКЦИИ ЗАДАЧ С АДАПТИВНЫМ ЦВЕТОМ */
+.tasks-section-title {
+  font-size: 32px;
+  font-weight: 700;
+  text-align: center;
+  margin-bottom: 40px;
+  transition: color 0.3s ease;
+}
+.dark-theme .tasks-section-title { color: #ffffff; }
+.light-theme .tasks-section-title { color: #000000; }
+
+/* СЕТКА С ЗАДАЧАМИ (ГОРИЗОНТАЛЬНАЯ) */
+.saas-tasks-section { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
+.tasks-grid-horizontal { display: grid; grid-template-columns: repeat(3, 1fr); gap: 25px; }
+
+@media (max-width: 900px) {
+  .tasks-grid-horizontal { grid-template-columns: 1fr; }
+}
+
+/* КВАДРАТЫ ЗАДАЧ */
+.task-panel-card-horizontal { 
+  background: var(--bg-cards); 
+  border: 1px solid var(--border-color); 
+  border-radius: 20px; 
+  padding: 30px; 
+  text-align: left;
+  transition: all 0.3s ease;
+}
+
+.dark-theme .task-panel-card-horizontal .task-title-text { color: #ffffff; }
+.dark-theme .task-panel-card-horizontal .task-body-text { color: #e0e0e0; }
+.light-theme .task-panel-card-horizontal .task-title-text { color: #000000; }
+.light-theme .task-panel-card-horizontal .task-body-text { color: #222222; }
+
+.task-header-row { display: flex; justify-content: space-between; align-items: center; margin-bottom: 15px; }
+.task-title-text { font-size: 20px; font-weight: 700; margin: 0; }
+
+/* ФИГУРКИ ПОЯВЛЯЮТСЯ ТОЛЬКО ПРИ НАВЕДЕНИИ КУРСОРА НА КВАДРАТ */
+.floating-bubble-icon { 
+  font-size: 28px; 
+  opacity: 0; 
+  transform: scale(0.5);
+  transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275); 
+}
+
+.task-panel-card-horizontal:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 20px rgba(0, 85, 255, 0.15);
+}
+.task-panel-card-horizontal:hover .floating-bubble-icon { 
+  opacity: 1; 
+  transform: scale(1.1);
+}
+.task-body-text { font-size: 14px; line-height: 1.6; margin: 0; }
+
+/* ЛИД-ФОРМА */
+.saas-registration-section { max-width: 600px; margin: 60px auto; padding: 0 20px; }
+.registration-card-box { background: var(--bg-cards); padding: 40px; border-radius: 24px; border: 1px solid var(--border-color); }
+.registration-subtitle { font-size: 16px; margin-bottom: 30px; text-align: center; }
+.saas-modern-form { display: flex; flex-direction: column; gap: 20px; }
+.saas-input-group { display: flex; flex-direction: column; gap: 8px; }
+.saas-input-group label { font-size: 14px; font-weight: 700; }
+.saas-input-group input, .saas-modern-select { padding: 14px; border: 1px solid var(--border-color); background: var(--input-bg); color: var(--text-main); border-radius: 12px; font-family: inherit; }
+.btn-submit-demo-giant { background: #0055ff; color: white; border: none; padding: 16px; border-radius: 12px; font-weight: 700; font-size: 16px; cursor: pointer; }
+
+/* СТРАНИЦА РЕГИСТРАЦИИ С АДАПТИВНЫМ ЦВЕТОМ ЗАГОЛОВКА */
+.auth-fullscreen-container { display: flex; justify-content: center; align-items: center; padding: 40px 20px; }
+.auth-glass-card-box { background: var(--bg-cards); width: 100%; max-width: 500px; padding: 40px; border-radius: 24px; border: 1px solid var(--border-color); }
+
+.auth-main-headline { 
+  font-size: 28px; 
+  font-weight: 700; 
+  margin-bottom: 20px; 
+  text-align: center;
+  transition: color 0.3s ease;
+}
+/* Заголовок "Регистрация" подстраивается под тему */
+.dark-theme .auth-main-headline { color: #ffffff; }
+.light-theme .auth-main-headline { color: #000000; }
+
+.btn-submit-demo-giant-primary { background: #0055ff; color: white; border: none; width: 100%; padding: 16px; border-radius: 12px; font-size: 16px; font-weight: 700; cursor: pointer; }
+.saas-footer { text-align: center; padding: 30px 20px; font-size: 12px; color: var(--text-muted); }
+.checkbox-container { display: flex; align-items: center; gap: 10px; font-size: 13px; cursor: pointer; }
+.text-nav-btn-link { background: none; border: none; color: #0055ff; cursor: pointer; font-weight: bold; }
